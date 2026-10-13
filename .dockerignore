@@ -1,0 +1,14 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/storage/logs/*.log
+/vendor
+.env
+.env.*
+.git
+.gitignore
+.editorconfig
+.phpunit.result.cache
+tests
+phpunit.xml

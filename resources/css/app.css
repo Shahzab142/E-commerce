@@ -1,0 +1,155 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+:root {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-family-base: var(--font-sans);
+    --bs-primary: #0d6efd;
+    --bs-primary-rgb: 13, 110, 253;
+    --bs-body-font-weight: 400;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Custom styles */
+@keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.marquee-content {
+    display: inline-flex;
+    animation: marquee-scroll 25s linear infinite;
+}
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+.category-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e9ecef;
+    background: #fff;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.rounded-4 {
+    border-radius: 0.75rem !important;
+}
+
+.rounded-5 {
+    border-radius: 1rem !important;
+}
+
+.bg-primary-subtle {
+    background-color: rgba(13, 110, 253, 0.1) !important;
+}
+
+.bg-success-subtle {
+    background-color: rgba(25, 135, 84, 0.1) !important;
+}
+
+.bg-info-subtle {
+    background-color: rgba(13, 202, 240, 0.1) !important;
+}
+
+.bg-warning-subtle {
+    background-color: rgba(255, 193, 7, 0.1) !important;
+}
+
+.bg-danger-subtle {
+    background-color: rgba(220, 53, 69, 0.1) !important;
+}
+
+.text-primary-subtle { color: #6c757d; }
+.bg-primary-subtle text-primary,
+.text-primary { color: var(--bs-primary); }
+
+.bg-primary-subtle { background-color: rgba(13, 110, 253, 0.1); }
+
+.badge.bg-primary-subtle {
+    background-color: rgba(13, 110, 253, 0.15) !important;
+    color: var(--bs-primary) !important;
+}
+
+.badge.bg-success-subtle {
+    background-color: rgba(25, 135, 84, 0.15) !important;
+    color: #198754 !important;
+}
+
+.badge.bg-warning-subtle {
+    background-color: rgba(255, 193, 7, 0.15) !important;
+    color: #ffc107 !important;
+}
+
+.badge.bg-danger-subtle {
+    background-color: rgba(220, 53, 69, 0.15) !important;
+    color: #dc3545 !important;
+}
+
+.badge.bg-info-subtle {
+    background-color: rgba(13, 202, 240, 0.15) !important;
+    color: #0dcaf0 !important;
+}
+
+.badge.bg-secondary-subtle {
+    background-color: rgba(108, 117, 125, 0.15) !important;
+    color: #6c757d !important;
+}
+
+/* Carousel image styling */
+.carousel-image {
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Layout fixes */
+#layoutSidenav {
+    overflow: hidden;
+    overflow-x: hidden;
+}
+
+#layoutSidenav_content {
+    overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Brand logo image sizing (shared by shop.css via main layout and app.css via auth layout) */
+.brand-logo-img {
+    display: inline-block;
+    height: 56px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.brand-logo-img-lg {
+    height: 76px;
+    max-width: 220px;
+    width: auto;
+}

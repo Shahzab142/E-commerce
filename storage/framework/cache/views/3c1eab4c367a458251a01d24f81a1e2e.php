@@ -1,0 +1,60 @@
+<?php
+
+use App\Livewire\Actions\Logout;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Livewire\Attributes\Layout;
+use Livewire\Volt\Component;
+
+?>
+
+<div class="p-4 p-md-5">
+    <div class="text-center mb-4">
+        <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10"
+            style="width: 56px; height: 56px;">
+            <i class="bi bi-envelope-check fs-3 text-primary"></i>
+        </div>
+        <h2 class="h4 fw-bold mb-2">Verify Your Email Address</h2>
+        <p class="text-muted small">
+            Before you can access your account, please verify your email address
+            by clicking the button below.
+        </p>
+    </div>
+
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(session('status')): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?php echo e(session('status')); ?>
+
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+
+    <form wire:submit="sendVerification">
+        <button type="submit" wire:loading.attr="disabled"
+            class="btn btn-primary w-100 py-2 mb-3">
+            <span wire:loading.remove>Resend Verification Code</span>
+            <span wire:loading>
+                <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                Sending...
+            </span>
+        </button>
+    </form>
+
+    <div class="text-center mb-4">
+        <button type="button" wire:click="goToVerifyCode" class="btn btn-outline-primary w-100 py-2">
+            Enter Verification Code
+        </button>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-4 small">
+        <a href="<?php echo e(route('login')); ?>" wire:navigate class="text-decoration-none">
+            &larr; Back to Sign In
+        </a>
+
+        <form wire:submit="logout">
+            <button type="submit" class="btn btn-link text-decoration-none small">
+                Sign Out
+            </button>
+        </form>
+    </div>
+</div><?php /**PATH C:\Users\Administrator\Desktop\E_commerce\ecommerce-laravel-project\ecommerce-laravel-project\resources\views\livewire\auth\verify-email.blade.php ENDPATH**/ ?>

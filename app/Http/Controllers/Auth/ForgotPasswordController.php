@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\ValidationException;
+
+class ForgotPasswordController extends Controller
+{
+    public function showForgotPasswordForm()
+    {
+        return view('livewire.auth.forgot-password');
+    }
+
+    public function sendResetLinkEmail(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'email' => ['required', 'email'],
+        ]);
+
+        Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return back()->with('status', __('passwords.sent'));
+    }
+}

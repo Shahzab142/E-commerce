@@ -1,0 +1,268 @@
+/* ==========================================================================
+   ShopHub — Dashboard Design System
+   Consistent with the storefront so the whole product feels like one brand.
+   Loaded AFTER the SB Admin template styles.
+   ========================================================================== */
+
+:root {
+    --shop-primary:     #2f5af0;
+    --shop-primary-600: #2348cf;
+    --shop-primary-soft:#eef2ff;
+    --shop-accent:      #e86521;
+    --shop-green:       #15803d;
+    --shop-green-soft:  #e7f6ec;
+    --shop-red:         #dc2626;
+    --shop-red-soft:    #fdecec;
+    --shop-amber:       #b45309;
+    --shop-amber-soft:  #fdf1dd;
+    --shop-ink:         #101828;
+    --shop-gray-50:     #f8fafc;
+    --shop-gray-100:    #f1f5f9;
+    --shop-gray-200:    #e2e8f0;
+    --shop-gray-300:    #cbd5e1;
+    --shop-gray-400:    #94a3b8;
+    --shop-gray-500:    #64748b;
+    --shop-gray-600:    #475569;
+    --shop-gray-700:    #334155;
+    --shop-gray-800:    #1e293b;
+    --shop-font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body { font-family: var(--shop-font); background: #f4f6fb; }
+
+/* --------------------------------------------------------------------------
+   Top navigation
+   -------------------------------------------------------------------------- */
+.sb-topnav.navbar-dark { background: var(--shop-ink) !important; }
+.sb-topnav .navbar-brand { font-weight: 800; letter-spacing: -.01em; }
+.sb-topnav .navbar-brand em, .sb-topnav .navbar-brand .brand-accent { color: #7aa2ff; font-style: normal; }
+
+/* Logo mark (matches storefront header) */
+.sb-topnav .brand-mark {
+    width: 30px; height: 30px;
+    border-radius: 9px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #2f5af0 0%, #7a5af0 100%);
+    color: #fff;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(47, 90, 240, .45);
+}
+.sb-topnav .brand-mark .bi { line-height: 1; }
+
+/* Brand logo image in the dark top nav (replaces the gradient mark) */
+.sb-topnav .brand-logo-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    margin-right: .6rem;
+    border-radius: 6px;
+    vertical-align: middle;
+}
+
+/* Sidebar */
+.sb-sidenav-dark { background: var(--shop-ink) !important; }
+.sb-sidenav-dark .sb-sidenav-menu .nav-link { color: rgba(255,255,255,.72); border-radius: .5rem; margin: .1rem .5rem; }
+.sb-sidenav-dark .sb-sidenav-menu .nav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
+.sb-sidenav-dark .sb-sidenav-menu .nav-link.active,
+.sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading + .nav > .nav-link.active,
+.sb-sidenav-dark .sb-sidenav-menu .nav-link.show { color: #fff; background: var(--shop-primary); }
+.sb-sidenav-footer { background: rgba(255,255,255,.05) !important; color: #fff; }
+
+/* --------------------------------------------------------------------------
+   Content chrome
+   -------------------------------------------------------------------------- */
+#layoutSidenav_content { background: #f4f6fb; }
+.page-title { font-weight: 800; color: var(--shop-ink); letter-spacing: -.01em; }
+.page-eyebrow { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--shop-primary-600); margin-bottom: .25rem; }
+
+/* --------------------------------------------------------------------------
+   Stat cards
+   -------------------------------------------------------------------------- */
+.stat-card {
+    border: 1px solid var(--shop-gray-200);
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(16,24,40,.05), 0 1px 3px rgba(16,24,40,.06);
+    background: #fff;
+    overflow: hidden;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+.stat-card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(16,24,40,.1); }
+.stat-card .stat-icon {
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 1.25rem;
+    color: #fff;
+}
+.stat-card .stat-label { font-size: .8rem; color: var(--shop-gray-500); font-weight: 600; }
+.stat-card .stat-value { font-size: 1.6rem; font-weight: 800; color: var(--shop-ink); letter-spacing: -.02em; }
+.stat-card .stat-foot { font-size: .78rem; color: var(--shop-gray-500); }
+
+.icon-primary { background: var(--shop-primary); }
+.icon-success { background: var(--shop-green); }
+.icon-warning { background: #e8a20f; }
+.icon-info    { background: #0ea5e9; }
+.icon-danger  { background: var(--shop-red); }
+.icon-dark    { background: var(--shop-ink); }
+
+/* --------------------------------------------------------------------------
+   Cards + tables
+   -------------------------------------------------------------------------- */
+.dash-card {
+    background: #fff;
+    border: 1px solid var(--shop-gray-200);
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(16,24,40,.05);
+}
+.dash-card .card-header { background: #fff; border-color: var(--shop-gray-200); }
+
+.table thead th {
+    background: var(--shop-gray-50);
+    color: var(--shop-gray-500);
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    border-bottom: 1px solid var(--shop-gray-200);
+    white-space: nowrap;
+}
+.table tbody td { vertical-align: middle; padding: .85rem 1rem; }
+.table-hover tbody tr:hover { background: var(--shop-gray-50); }
+.table thead th a.sort-link { color: var(--shop-gray-500); text-decoration: none; }
+.table thead th a.sort-link:hover { color: var(--shop-primary-600); }
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.btn-primary {
+    --bs-btn-bg: var(--shop-primary);
+    --bs-btn-border-color: var(--shop-primary);
+    --bs-btn-hover-bg: var(--shop-primary-600);
+    --bs-btn-hover-border-color: var(--shop-primary-600);
+    --bs-btn-active-bg: var(--shop-primary-600);
+    --bs-btn-active-border-color: var(--shop-primary-600);
+}
+.btn-outline-primary {
+    --bs-btn-color: var(--shop-primary);
+    --bs-btn-border-color: var(--shop-primary);
+    --bs-btn-hover-bg: var(--shop-primary);
+    --bs-btn-hover-border-color: var(--shop-primary);
+}
+.btn { font-weight: 600; border-radius: .625rem; }
+.btn-sm { border-radius: .5rem; }
+
+/* Status badges */
+.status-badge {
+    display: inline-flex; align-items: center; gap: .35rem;
+    padding: .28rem .65rem; border-radius: 999px;
+    font-size: .75rem; font-weight: 600; text-transform: capitalize;
+}
+.status-badge::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: currentColor; }
+.status-pending    { background: var(--shop-amber-soft); color: var(--shop-amber); }
+.status-processing { background: var(--shop-primary-soft); color: var(--shop-primary-600); }
+.status-shipped    { background: #eef2ff; color: #4338ca; }
+.status-delivered  { background: var(--shop-green-soft); color: var(--shop-green); }
+.status-cancelled  { background: var(--shop-red-soft); color: var(--shop-red); }
+.status-active     { background: var(--shop-green-soft); color: var(--shop-green); }
+.status-suspend    { background: var(--shop-red-soft); color: var(--shop-red); }
+.status-suspended  { background: var(--shop-red-soft); color: var(--shop-red); }
+.status-published  { background: var(--shop-green-soft); color: var(--shop-green); }
+.status-draft      { background: var(--shop-gray-100); color: var(--shop-gray-600); }
+.status-pending-product { background: var(--shop-amber-soft); color: var(--shop-amber); }
+
+/* --------------------------------------------------------------------------
+   Alerts
+   -------------------------------------------------------------------------- */
+.alert { border: none; border-radius: .75rem; }
+.alert-success { background: var(--shop-green-soft); color: #14532d; }
+.alert-warning { background: var(--shop-amber-soft); color: #7c3f04; }
+.alert-danger  { background: var(--shop-red-soft); color: #7f1d1d; }
+
+/* Forms */
+.form-control:focus, .form-select:focus { border-color: var(--shop-primary); box-shadow: 0 0 0 3px rgba(47,90,240,.16); }
+.form-label { font-weight: 600; color: var(--shop-gray-700); }
+
+/* Empty / helpful states */
+.dash-empty { text-align: center; color: var(--shop-gray-500); padding: 2.5rem 1rem; }
+.dash-empty .bi { font-size: 2.2rem; color: var(--shop-gray-300); display: block; margin-bottom: .6rem; }
+
+/* Dropdown menus */
+.dropdown-menu { border: 1px solid var(--shop-gray-200); border-radius: .75rem; box-shadow: 0 12px 32px rgba(16,24,40,.12); }
+.dropdown-item:active { background: var(--shop-primary); }
+
+/* Sidenav mobile toggle */
+#layoutSidenav_toggle:focus { box-shadow: none; }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    .sb-topnav .navbar-brand { font-size: 1.05rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+/* ==========================================================================
+   Admin layout — fixed sidebar on the left (project-specific fix)
+   --------------------------------------------------------------------------
+   The admin layout renders "#layoutSidenav_content" as a *direct child* of
+   <body> (a sibling of #layoutSidenav), whereas the SB Admin template wraps
+   it INSIDE #layoutSidenav. Because of that the SB Admin descendant rules
+   for the content pane don't match on the admin pages, so the sidebar
+   collapsed into the page flow instead of pinning to the side.
+
+   These rules are scoped with `body > #layoutSidenav_content` so they only
+   affect the admin layout — the user dashboard (which nests the content
+   pane correctly) is untouched.
+   ========================================================================== */
+
+/* Sidebar: keep it pinned to the left side, under the fixed top navbar. */
+#layoutSidenav #layoutSidenav_nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 225px;
+    height: 100vh;
+    overflow: hidden;
+}
+#layoutSidenav #layoutSidenav_nav .sb-sidenav {
+    padding-top: 56px;                 /* clears the fixed top navbar */
+    height: 100%;
+}
+#layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
+    overflow-y: auto;
+}
+
+/* Admin content pane (sibling of #layoutSidenav): offset it below the fixed
+   top navbar and to the right of the fixed left sidebar. */
+body > #layoutSidenav_content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 56px;                  /* clears the 56px fixed top navbar */
+    margin-left: 225px;                /* clears the 225px fixed sidebar  */
+    min-height: calc(100vh - 56px);
+}
+
+/* Responsive: keep SB Admin behaviour — sidebar collapses off-canvas on
+   small screens and the content pane goes full width underneath it. */
+@media (max-width: 991.98px) {
+    #layoutSidenav #layoutSidenav_nav {
+        transform: translateX(-101%);
+    }
+    body > #layoutSidenav_content {
+        margin-left: 0;
+    }
+}
+
+/* Larger screens: make sure the sidebar is always visible on the side. */
+@media (min-width: 992px) {
+    #layoutSidenav #layoutSidenav_nav {
+        transform: translateX(0);
+    }
+}
+

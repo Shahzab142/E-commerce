@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: khyber-pro
+    runtime: docker
+    plan: free
+    region: oregon
+    envVars:
+      - key: APP_NAME
+        value: "Khyber Pro"
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        generateValue: true
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DATABASE_URL
+        fromDatabase:
+          name: khyber-pro-db
+          property: connectionString
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_STORE
+        value: database
+
+databases:
+  - name: khyber-pro-db
+    databaseName: khyber_db
+    user: khyber_user
+    plan: free
+    region: oregon
