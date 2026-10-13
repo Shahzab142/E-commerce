@@ -16,7 +16,7 @@ return new class extends Migration
             $table->decimal('subtotal', 12, 2);
             $table->decimal('shipping_total', 12, 2)->default(0);
             $table->decimal('total', 12, 2);
-            $table->enum('status', ['pending', 'processing', 'shipped', 'delivered', 'cancelled'])->default('pending');
+            $table->string('status', 50)->default('pending');
             $table->string('shipping_name');
             $table->string('shipping_phone')->nullable();
             $table->text('shipping_address');

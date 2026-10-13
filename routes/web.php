@@ -61,16 +61,12 @@ Route::get('/sitemap.xml', function () {
 
 Route::get('/run-migrate', function () {
     try {
-        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
-        $migrateOutput = \Illuminate\Support\Facades\Artisan::output();
-
-        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
-        $seedOutput = \Illuminate\Support\Facades\Artisan::output();
+        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', ['--force' => true, '--seed' => true]);
+        $output = \Illuminate\Support\Facades\Artisan::output();
 
         return response()->json([
             'status' => 'success',
-            'migrate' => $migrateOutput,
-            'seed' => $seedOutput,
+            'output' => $output,
         ]);
     } catch (\Throwable $e) {
         return response()->json([
