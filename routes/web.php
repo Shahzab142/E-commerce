@@ -59,6 +59,40 @@ Route::get('/sitemap.xml', function () {
     return response($xml, 200)->header('Content-Type', 'application/xml');
 })->name('sitemap');
 
+Route::get('/run-migrate', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        $migrateOutput = \Illuminate\Support\Facades\Artisan::output();
+
+        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+        $seedOutput = \Illuminate\Support\Facades\Artisan::output();
+
+        return response()->json([
+            'status' => 'success',
+            'migrate' => $migrateOutput,
+            'seed' => $seedOutput,
+        ]);
+    } catch (\Throwable $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage(),
+            'file' => $e->getFile(),
+            'line' => $e->getLine(),
+        ], 500);
+    }
+});
+
+Route::get('/debug-db', function () {
+    try {
+        $tables = \Illuminate\Support\Facades\DB::select("SELECT name FROM sqlite_master WHERE type='table'");
+        return response()->json([
+            'tables' => array_column($tables, 'name'),
+        ]);
+    } catch (\Throwable $e) {
+        return response()->json(['error' => $e->getMessage()]);
+    }
+});
+
 /*
 |--------------------------------------------------------------------------
 | Public Pages

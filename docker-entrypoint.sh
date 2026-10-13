@@ -78,7 +78,8 @@ fi
 
 # Run database migrations and seed default users
 echo "Running database migrations..."
-php artisan migrate --force --seed || php artisan migrate --force || true
+php artisan migrate --force || true
+php artisan db:seed --force || true
 
 # Cache configs and routes with runtime variables
 echo "Caching configuration and routes..."
