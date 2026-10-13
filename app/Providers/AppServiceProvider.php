@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if ($this->app->environment('production') || request()->header('x-forwarded-proto') === 'https') {
+        if (! $this->app->runningInConsole() && ($this->app->environment('production') || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https'))) {
             URL::forceScheme('https');
         }
 
